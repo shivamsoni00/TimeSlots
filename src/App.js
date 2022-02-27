@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, Link } from "react-router-dom";
+import "./App.css";
+import TimeSlot from "./components/timeslot/timeslo";
+import UserForm from "./components/form/Form";
+
+import AppContext from "./context";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<AppContext>
+			<div className="App">
+				<Routes>
+					<Route exact path="/" element={<TimeSlot />} />
+					<Route path="/slots/userInfo/:id" element={<UserForm />} />
+				</Routes>
+			</div>
+		</AppContext>
+	);
 }
 
 export default App;

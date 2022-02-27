@@ -1,10 +1,9 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import TimeSlot from "./components/timeslot/timeslo";
 import UserForm from "./components/form/Form";
 
 import AppContext from "./context";
-
 
 function App() {
 	return (

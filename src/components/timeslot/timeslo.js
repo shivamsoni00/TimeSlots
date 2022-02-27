@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Context } from "../../context";
 import "./timeslo.css";
@@ -86,7 +86,7 @@ function TimeSlot() {
 
 	useEffect(() => {
 		createSlots();
-	}, []);
+	});
 
 	return (
 		<>

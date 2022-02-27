@@ -1,18 +1,11 @@
 {
-	"users": [
-		{
-			"firstName": "shivam ",
-			"lastName": "soni",
-			"mobile": "9660591317",
-			"isSaved": true,
-			"id": 1
-		},
-		{
-			"firstName": "fsd ",
-			"lastName": "soni",
-			"mobile": "966091317",
-			"isSaved": true,
-			"id": 2
-		}
-	]
+  "users": [
+    {
+      "firstName": "ss",
+      "lastName": "s",
+      "mobile": "s",
+      "isSaved": true,
+      "id": 1
+    }
+  ]
 }

@@ -14,7 +14,7 @@ function Form() {
 	const [mobile, setMobile] = useState("");
 
 	const contextval = useContext(Context);
-	const { defaultState, setUserData, setPara, setRes } = contextval;
+	const { defaultState, setUserData, setPara, setRes, mainpara } = contextval;
 	let { id } = useParams();
 	const navigate = useNavigate();
 
@@ -115,7 +115,7 @@ function Form() {
 							style={{ fontWeight: "570", fontSize: "1.1rem" }}
 							key={index}
 						>
-							{index === Number(id) ? (
+							{index === Number(mainpara) ? (
 								<>
 									<p>FirstName:{user.firstName}</p>
 									<p>LastName: {user.lastName}</p>

@@ -86,7 +86,7 @@ function TimeSlot() {
 
 	useEffect(() => {
 		createSlots();
-	}, ["hello"]);
+	}, [createSlots]);
 
 	return (
 		<>

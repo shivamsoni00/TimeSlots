@@ -22,7 +22,6 @@ function Form() {
 		mainpara,
 		colortoggle,
 		setColorToggle,
-		res,
 	} = contextval;
 	let { id } = useParams();
 	const navigate = useNavigate();

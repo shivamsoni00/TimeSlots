@@ -8,7 +8,7 @@ function TimeSlot() {
 	const [timeSlots, setTimeSlots] = useState([]);
 
 	const context = useContext(Context);
-	const { mainpara, colortoggle, defaultState } = context;
+	const { mainpara, colortoggle } = context;
 
 	useEffect(() => {
 		const slotConfig = {

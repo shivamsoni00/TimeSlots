@@ -6,11 +6,21 @@ const AppContext = (props) => {
 	const [defaultState, setDefaultState] = useState([]);
 	const [mainpara, setPara] = useState("");
 	const [res, setRes] = useState({});
+	const [colortoggle, setColorToggle] = useState();
+
+	console.log("colortoggle", colortoggle);
+
+	console.log("mainpara", mainpara);
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/users").then((response) => {
+		axios.get("http://localhost:3001/api/users").then((response) => {
 			const user = response.data;
-			setDefaultState(user);
+			if (user) {
+				console.log("user", user);
+
+				setDefaultState(user);
+				setColorToggle(user.length);
+			}
 		});
 	}, []);
 
@@ -27,6 +37,8 @@ const AppContext = (props) => {
 		setDefaultState,
 		res,
 		setRes,
+		colortoggle,
+		setColorToggle,
 	};
 
 	return (

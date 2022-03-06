@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -14,12 +14,29 @@ function Form() {
 	const [mobile, setMobile] = useState("");
 
 	const contextval = useContext(Context);
-	const { defaultState, setUserData, setPara, setRes, mainpara } = contextval;
+	const {
+		defaultState,
+		setUserData,
+		setPara,
+		setRes,
+		setDefaultState,
+		mainpara,
+		colortoggle,
+		setColorToggle,
+		res,
+	} = contextval;
 	let { id } = useParams();
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		console.log("id", id);
+		console.log("from useeffect setDefaultState", colortoggle);
+		setPara(id);
+	}, []);
+
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
+
 		const formVal = {
 			firstName,
 			lastName,
@@ -27,22 +44,31 @@ function Form() {
 			isSaved: true,
 		};
 
-		await setPara(id);
+		console.log("formVal", formVal);
 
-		axios.post("http://localhost:3001/users", formVal).then((response) => {
-			console.log("response.data", response.data);
-			setUserData(response.data);
-			setRes(response);
-		});
+		axios
+			.post("http://localhost:3001/api/users", formVal)
+			.then((response) => {
+				if (response) {
+					console.log("response.data", response.data);
+					setUserData(response.data);
+					setRes(response);
+					setColorToggle(colortoggle + 1);
+				}
+			});
 
 		setFirstName("");
 		setLastName("");
+		
 		setMobile("");
 
 		await navigate("/");
 	};
 
 	const cancelHandler = async () => {
+		if (!res) {
+			// setColorToggle(!colortoggle);
+		}
 		await navigate("/");
 	};
 
@@ -115,7 +141,13 @@ function Form() {
 							style={{ fontWeight: "570", fontSize: "1.1rem" }}
 							key={index}
 						>
-							{index === Number(mainpara) ? (
+							{console.log(
+								"index userid mainpara",
+								index,
+								user.id,
+								mainpara
+							)}
+							{Number(mainpara) === user.id ? (
 								<>
 									<p>FirstName:{user.firstName}</p>
 									<p>LastName: {user.lastName}</p>

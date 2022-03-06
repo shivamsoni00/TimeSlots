@@ -19,7 +19,6 @@ function Form() {
 		setUserData,
 		setPara,
 		setRes,
-		setDefaultState,
 		mainpara,
 		colortoggle,
 		setColorToggle,
@@ -29,10 +28,13 @@ function Form() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		console.log("id", id);
-		console.log("from useeffect setDefaultState", colortoggle);
-		setPara(id);
-	}, []);
+		const dcuk = async () => {
+			console.log("id", id);
+			console.log("from useeffect setDefaultState", colortoggle);
+			await setPara(id);
+		};
+		dcuk();
+	}, [id, colortoggle, setPara]);
 
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();

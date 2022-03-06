@@ -94,11 +94,6 @@ function TimeSlot() {
 			<div className="time-container">
 				<h2>TimeSlot</h2>
 				<div className="slot-container">
-					{console.log(
-						"colortoggle",
-						colortoggle,
-						defaultState.length
-					)}
 					{timeSlots &&
 						timeSlots.map((slot, index) => (
 							<div

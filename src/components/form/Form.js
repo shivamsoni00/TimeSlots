@@ -29,8 +29,6 @@ function Form() {
 
 	useEffect(() => {
 		const dcuk = async () => {
-			console.log("id", id);
-			console.log("from useeffect setDefaultState", colortoggle);
 			await setPara(id);
 		};
 		dcuk();
@@ -46,13 +44,10 @@ function Form() {
 			isSaved: true,
 		};
 
-		console.log("formVal", formVal);
-
 		axios
 			.post("http://localhost:3001/api/users", formVal)
 			.then((response) => {
 				if (response) {
-					console.log("response.data", response.data);
 					setUserData(response.data);
 					setRes(response);
 					setColorToggle(colortoggle + 1);
@@ -61,16 +56,11 @@ function Form() {
 
 		setFirstName("");
 		setLastName("");
-		
 		setMobile("");
-
 		await navigate("/");
 	};
 
 	const cancelHandler = async () => {
-		if (!res) {
-			// setColorToggle(!colortoggle);
-		}
 		await navigate("/");
 	};
 
@@ -143,12 +133,6 @@ function Form() {
 							style={{ fontWeight: "570", fontSize: "1.1rem" }}
 							key={index}
 						>
-							{console.log(
-								"index userid mainpara",
-								index,
-								user.id,
-								mainpara
-							)}
 							{Number(mainpara) === user.id ? (
 								<>
 									<p>FirstName:{user.firstName}</p>

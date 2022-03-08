@@ -1,4 +1,4 @@
-console.log("hello");
+console.log("hello from heroku");
 
 const express = require("express");
 const app = express();

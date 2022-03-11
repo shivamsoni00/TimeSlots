@@ -108,7 +108,7 @@ function TimeSlot() {
 									<Link
 										className="slot-link"
 										target="_blank"
-										to={`/slots/userInfo/${index}`}
+										to={`/api/users/${index}`}
 									>
 										{slot.timeSlotStart} {slot.timeSlotEnd}
 									</Link>

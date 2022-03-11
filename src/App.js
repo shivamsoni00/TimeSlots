@@ -11,7 +11,7 @@ function App() {
 			<div className="App">
 				<Routes>
 					<Route exact path="/" element={<TimeSlot />} />
-					<Route path="/slots/userInfo/:id" element={<UserForm />} />
+					<Route exact path="/api/users/:id" element={<UserForm />} />
 				</Routes>
 			</div>
 		</AppContext>
